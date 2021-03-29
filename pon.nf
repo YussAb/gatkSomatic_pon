@@ -35,7 +35,7 @@ process run_mutect2_tumor_only_mode {
 
     tag "${normal_bam.simpleName.minus('_Normal')}"
     publishDir "${params.outdir}/MutectTumorOnlyMode", mode: 'copy'
-    container "broadinstitute/gatk:latest"
+    //container "broadinstitute/gatk:latest"
 
     input:
     file(normal_bam) from bam_mutect2_tum_only_mode_channel
@@ -66,7 +66,7 @@ process create_GenomicsDB {
 
     tag "all_the_vcfs"
     publishDir "${params.outdir}/GenomicsDBImport", mode: 'copy'
-    container "broadinstitute/gatk:latest"
+   // container "broadinstitute/gatk:latest"
 
     input:
     file("*") from vcf_for_create_GenomicsDB_channel.collect()
@@ -96,7 +96,7 @@ process create_somatic_PoN {
     
     tag "$af_only_gnomad_vcf"
     publishDir "${params.outdir}/CreateSomaticPanelOfNormals", mode: 'copy'
-    container "broadinstitute/gatk:latest"
+  //  container "broadinstitute/gatk:latest"
 
     input:
     file(pon_db) from pon_db_for_create_somatic_PoN
